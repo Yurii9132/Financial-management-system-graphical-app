@@ -59,6 +59,7 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Windows::Forms::Button^ List_Expenses_month_btn;
 	private: System::Windows::Forms::Button^ TopUpCardBalance_btn;
 	private: System::Windows::Forms::TextBox^ Balance_TextBox;
+	private: System::Windows::Forms::Button^ button3;
 
 
 
@@ -94,6 +95,7 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->List_Expenses_month_btn = (gcnew System::Windows::Forms::Button());
 			this->TopUpCardBalance_btn = (gcnew System::Windows::Forms::Button());
 			this->Balance_TextBox = (gcnew System::Windows::Forms::TextBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -218,11 +220,21 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->Balance_TextBox->Size = System::Drawing::Size(175, 30);
 			this->Balance_TextBox->TabIndex = 11;
 			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(555, 177);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(174, 60);
+			this->button3->TabIndex = 12;
+			this->button3->Text = L"button3";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(924, 584);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->Balance_TextBox);
 			this->Controls->Add(this->TopUpCardBalance_btn);
 			this->Controls->Add(this->List_Expenses_month_btn);
