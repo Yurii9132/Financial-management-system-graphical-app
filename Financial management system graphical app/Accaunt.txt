@@ -1,0 +1,31 @@
+11300
+20	2	2023	20	2Ball																													
+20	2	2023	7	2Goggles																													
+20	2	2023	3	1Juse																													
+20	2	2023	13	5Slippers																													
+20	2	2023	102	4Bus ticket																													
+20	1	2023	600	5Phone																													
+20	2	2023	8	2Toothpaste																													
+27	2	2023	10	3Burger																													
+27	2	2023	15	3Cinema: Avatar 2																												
+7	3	2023	20	5Postage																									
+7	3	2023	17	2Haircut																								
+28	2	2023	70	5Sunglasses																							
+7	3	2023	120	2Trainers																						
+8	3	2023	560	5Entrence Door																					
+3	3	2023	100	3Coser Orcestr																		
+10	3	2023	23	2Bum Bag																		
+10	3	2023	21	2Colagen																	
+10	3	2023	100.25	0Top up																
+10	3	2023	100	0Top up card balance															
+10	3	2023	100	0Top up card balance													
+10	3	2023	100	0Top up card balance													
+10	3	2023	1000	0Top up card balance												
+10	3	2023	1000	0Top up card balance												
+10	3	2023	1000	0Top up card balance											
+10	3	2023	12	1Box of tea								
+10	3	2023	500	0Top up card balance						
+10	3	2023	500	0Top up card balance					
+10	3	2023	500	0Top up card balance			
+11	3	2023	-30	0Top up card balance		
+11	3	2023	100	0Top up card balance	
