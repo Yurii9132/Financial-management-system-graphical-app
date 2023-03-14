@@ -4,8 +4,18 @@
 
 bool FinanceManagementSystemGraphicalApp::AddExpense::AreNotEmpty()
 {
-	if(!System::String::IsNullOrEmpty(Sum_text_box->Text) && !System::String::IsNullOrEmpty(Name_text_box->Text))
+	System::String^ amount = this->Sum_text_box->Text;
+	if (!System::String::IsNullOrEmpty(Sum_text_box->Text) && !System::String::IsNullOrEmpty(Name_text_box->Text)) {
+		if (this->Sum_text_box->Text->Contains("."))
+			amount = this->Sum_text_box->Text->Replace(".", ",");
+		try {
+			sum = System::Convert::ToDouble(amount);
+		}
+		catch (FormatException^ ex) {
+			return false;
+		}
 		return true;
+	}		
 	else
 		return false;
 }

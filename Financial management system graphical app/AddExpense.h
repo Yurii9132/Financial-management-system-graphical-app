@@ -50,6 +50,8 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Windows::Forms::Button^ Clothes_and_other_btn;
 	private: int categorie;
 	private: bool isCanc = true;
+	private: double sum;
+
 
 
 	private: System::Windows::Forms::Label^ label3;
@@ -238,10 +240,10 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Void Clothes_and_other_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Cancel_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	public: DateTimePicker^ getDate() {	return dateTimePicker;	}
-	public: System::String^ getSum() {	return Sum_text_box->Text;	}
+	public: double getSum() { return sum; }
 	public: System::String^ getNane() {	return Name_text_box->Text;	}
 	public: int getCategorie() { return categorie;	}
 	public: bool getIsCanceled() {	return isCanc;	}
-	public: System::Void setIsCanceled(bool isCanc) { this->isCanc = isCanc;	}
+	public: System::Void setIsCanceled(bool isCanc) { this->isCanc = isCanc; }
 };
 }

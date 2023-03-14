@@ -3,7 +3,7 @@
 #include"AddExpense.h"
 
 
-	extern BancCard MonoBanc("Yurii Ruban", 1670336618221342, { 12, 28 }, 002, 2000);
+	extern BancCard ;
 
 
 namespace FinanceManagementSystemGraphicalApp {
@@ -23,16 +23,12 @@ namespace FinanceManagementSystemGraphicalApp {
 	public:
 		MyForm(void)
 		{
+			MonoBanc = new BancCard("Yurii Ruban", 1670336618221342, { 12, 28 }, 002, 2000);
+			MonoBanc->readFromFile();
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
 		}
 
 	protected:
-		/// <summary>
-		/// Освободить все используемые ресурсы.
-		/// </summary>
 		~MyForm()
 		{
 			if (components)
@@ -59,7 +55,8 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Windows::Forms::Button^ List_Expenses_month_btn;
 	private: System::Windows::Forms::Button^ TopUpCardBalance_btn;
 	private: System::Windows::Forms::TextBox^ Balance_TextBox;
-	private: System::Windows::Forms::Button^ button3;
+
+	private: BancCard* MonoBanc;
 
 
 
@@ -95,16 +92,15 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->List_Expenses_month_btn = (gcnew System::Windows::Forms::Button());
 			this->TopUpCardBalance_btn = (gcnew System::Windows::Forms::Button());
 			this->Balance_TextBox = (gcnew System::Windows::Forms::TextBox());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(374, 81);
+			this->button1->Location = System::Drawing::Point(334, 81);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(175, 75);
+			this->button1->Size = System::Drawing::Size(155, 75);
 			this->button1->TabIndex = 1;
 			this->button1->Text = L"List expenses per week";
 			this->button1->UseVisualStyleBackColor = true;
@@ -116,7 +112,7 @@ namespace FinanceManagementSystemGraphicalApp {
 				static_cast<System::Byte>(204)));
 			this->Add_Expense->Location = System::Drawing::Point(12, 81);
 			this->Add_Expense->Name = L"Add_Expense";
-			this->Add_Expense->Size = System::Drawing::Size(175, 75);
+			this->Add_Expense->Size = System::Drawing::Size(155, 75);
 			this->Add_Expense->TabIndex = 2;
 			this->Add_Expense->Text = L"Add Expense";
 			this->Add_Expense->UseVisualStyleBackColor = true;
@@ -126,9 +122,9 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->Categories_sum_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->Categories_sum_btn->Location = System::Drawing::Point(193, 81);
+			this->Categories_sum_btn->Location = System::Drawing::Point(173, 81);
 			this->Categories_sum_btn->Name = L"Categories_sum_btn";
-			this->Categories_sum_btn->Size = System::Drawing::Size(175, 75);
+			this->Categories_sum_btn->Size = System::Drawing::Size(155, 75);
 			this->Categories_sum_btn->TabIndex = 3;
 			this->Categories_sum_btn->Text = L"List summary ";
 			this->Categories_sum_btn->UseVisualStyleBackColor = true;
@@ -138,7 +134,7 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->dateTimePicker->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->dateTimePicker->Location = System::Drawing::Point(670, 23);
+			this->dateTimePicker->Location = System::Drawing::Point(732, 29);
 			this->dateTimePicker->Name = L"dateTimePicker";
 			this->dateTimePicker->Size = System::Drawing::Size(240, 29);
 			this->dateTimePicker->TabIndex = 4;
@@ -147,9 +143,9 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->topThreeExpensesPerWeek_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->topThreeExpensesPerWeek_btn->Location = System::Drawing::Point(735, 81);
+			this->topThreeExpensesPerWeek_btn->Location = System::Drawing::Point(656, 81);
 			this->topThreeExpensesPerWeek_btn->Name = L"topThreeExpensesPerWeek_btn";
-			this->topThreeExpensesPerWeek_btn->Size = System::Drawing::Size(175, 75);
+			this->topThreeExpensesPerWeek_btn->Size = System::Drawing::Size(155, 75);
 			this->topThreeExpensesPerWeek_btn->TabIndex = 5;
 			this->topThreeExpensesPerWeek_btn->Text = L"Top 3 expenses per week";
 			this->topThreeExpensesPerWeek_btn->UseVisualStyleBackColor = true;
@@ -159,9 +155,9 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->topThreeExpensesPerMonth_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->topThreeExpensesPerMonth_btn->Location = System::Drawing::Point(735, 162);
+			this->topThreeExpensesPerMonth_btn->Location = System::Drawing::Point(817, 81);
 			this->topThreeExpensesPerMonth_btn->Name = L"topThreeExpensesPerMonth_btn";
-			this->topThreeExpensesPerMonth_btn->Size = System::Drawing::Size(175, 75);
+			this->topThreeExpensesPerMonth_btn->Size = System::Drawing::Size(155, 75);
 			this->topThreeExpensesPerMonth_btn->TabIndex = 5;
 			this->topThreeExpensesPerMonth_btn->Text = L"Top 3 expenses per month";
 			this->topThreeExpensesPerMonth_btn->UseVisualStyleBackColor = true;
@@ -191,9 +187,9 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->List_Expenses_month_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->List_Expenses_month_btn->Location = System::Drawing::Point(555, 81);
+			this->List_Expenses_month_btn->Location = System::Drawing::Point(495, 81);
 			this->List_Expenses_month_btn->Name = L"List_Expenses_month_btn";
-			this->List_Expenses_month_btn->Size = System::Drawing::Size(174, 75);
+			this->List_Expenses_month_btn->Size = System::Drawing::Size(155, 75);
 			this->List_Expenses_month_btn->TabIndex = 9;
 			this->List_Expenses_month_btn->Text = L"List expenses per month";
 			this->List_Expenses_month_btn->UseVisualStyleBackColor = true;
@@ -203,9 +199,9 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->TopUpCardBalance_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->TopUpCardBalance_btn->Location = System::Drawing::Point(374, 23);
+			this->TopUpCardBalance_btn->Location = System::Drawing::Point(495, 28);
 			this->TopUpCardBalance_btn->Name = L"TopUpCardBalance_btn";
-			this->TopUpCardBalance_btn->Size = System::Drawing::Size(175, 32);
+			this->TopUpCardBalance_btn->Size = System::Drawing::Size(155, 32);
 			this->TopUpCardBalance_btn->TabIndex = 10;
 			this->TopUpCardBalance_btn->Text = L"Top up";
 			this->TopUpCardBalance_btn->UseVisualStyleBackColor = true;
@@ -215,26 +211,16 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->Balance_TextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->Balance_TextBox->Location = System::Drawing::Point(193, 25);
+			this->Balance_TextBox->Location = System::Drawing::Point(334, 28);
 			this->Balance_TextBox->Name = L"Balance_TextBox";
-			this->Balance_TextBox->Size = System::Drawing::Size(175, 30);
+			this->Balance_TextBox->Size = System::Drawing::Size(155, 30);
 			this->Balance_TextBox->TabIndex = 11;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(555, 177);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(174, 60);
-			this->button3->TabIndex = 12;
-			this->button3->Text = L"button3";
-			this->button3->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(924, 584);
-			this->Controls->Add(this->button3);
+			this->ClientSize = System::Drawing::Size(981, 584);
 			this->Controls->Add(this->Balance_TextBox);
 			this->Controls->Add(this->TopUpCardBalance_btn);
 			this->Controls->Add(this->List_Expenses_month_btn);
@@ -259,8 +245,8 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Void Categories_sum_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void topThreeExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void topThreeExpensesPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e);
-	private: vector<Date> daysOfweek();
 	private: System::Void List_Expenses_month_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void TopUpCardBalance_btn_Click(System::Object^ sender, System::EventArgs^ e);
+	private: vector<Date> daysOfweek();
 };
 }
