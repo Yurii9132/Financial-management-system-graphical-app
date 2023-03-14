@@ -36,14 +36,20 @@ namespace FinanceManagementSystemGraphicalApp {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ ListExpensesPerWeek_btn;
+	protected:
 
-	private: System::Windows::Forms::Button^ button1;
+	protected:
+
+
 
 
 
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ Add_Expense;
-	private: System::Windows::Forms::Button^ Categories_sum_btn;
+	private: System::Windows::Forms::Button^ AddExpense_btn;
+	private: System::Windows::Forms::Button^ ListSummaryPerWeek_btn;
+
+
 	private: System::Windows::Forms::DateTimePicker^ dateTimePicker;
 
 	private: System::Windows::Forms::Button^ topThreeExpensesPerWeek_btn;
@@ -52,11 +58,14 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Windows::Forms::Button^ topThreeExpensesPerMonth_btn;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ Balance;
-	private: System::Windows::Forms::Button^ List_Expenses_month_btn;
+	private: System::Windows::Forms::Button^ ListExpensesPerMonth_btn;
+
+
 	private: System::Windows::Forms::Button^ TopUpCardBalance_btn;
 	private: System::Windows::Forms::TextBox^ Balance_TextBox;
 
 	private: BancCard* MonoBanc;
+	private: System::Windows::Forms::Button^ ListSummaryPerMonth_btn;
 
 
 
@@ -81,54 +90,55 @@ namespace FinanceManagementSystemGraphicalApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->Add_Expense = (gcnew System::Windows::Forms::Button());
-			this->Categories_sum_btn = (gcnew System::Windows::Forms::Button());
+			this->ListExpensesPerWeek_btn = (gcnew System::Windows::Forms::Button());
+			this->AddExpense_btn = (gcnew System::Windows::Forms::Button());
+			this->ListSummaryPerWeek_btn = (gcnew System::Windows::Forms::Button());
 			this->dateTimePicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->topThreeExpensesPerWeek_btn = (gcnew System::Windows::Forms::Button());
 			this->topThreeExpensesPerMonth_btn = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Balance = (gcnew System::Windows::Forms::Label());
-			this->List_Expenses_month_btn = (gcnew System::Windows::Forms::Button());
+			this->ListExpensesPerMonth_btn = (gcnew System::Windows::Forms::Button());
 			this->TopUpCardBalance_btn = (gcnew System::Windows::Forms::Button());
 			this->Balance_TextBox = (gcnew System::Windows::Forms::TextBox());
+			this->ListSummaryPerMonth_btn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// button1
+			// ListExpensesPerWeek_btn
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(334, 81);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(155, 75);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"List expenses per week";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// Add_Expense
-			// 
-			this->Add_Expense->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->Add_Expense->Location = System::Drawing::Point(12, 81);
-			this->Add_Expense->Name = L"Add_Expense";
-			this->Add_Expense->Size = System::Drawing::Size(155, 75);
-			this->Add_Expense->TabIndex = 2;
-			this->Add_Expense->Text = L"Add Expense";
-			this->Add_Expense->UseVisualStyleBackColor = true;
-			this->Add_Expense->Click += gcnew System::EventHandler(this, &MyForm::Add_Expense_Click);
-			// 
-			// Categories_sum_btn
-			// 
-			this->Categories_sum_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+			this->ListExpensesPerWeek_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->Categories_sum_btn->Location = System::Drawing::Point(173, 81);
-			this->Categories_sum_btn->Name = L"Categories_sum_btn";
-			this->Categories_sum_btn->Size = System::Drawing::Size(155, 75);
-			this->Categories_sum_btn->TabIndex = 3;
-			this->Categories_sum_btn->Text = L"List summary ";
-			this->Categories_sum_btn->UseVisualStyleBackColor = true;
-			this->Categories_sum_btn->Click += gcnew System::EventHandler(this, &MyForm::Categories_sum_btn_Click);
+			this->ListExpensesPerWeek_btn->Location = System::Drawing::Point(495, 81);
+			this->ListExpensesPerWeek_btn->Name = L"ListExpensesPerWeek_btn";
+			this->ListExpensesPerWeek_btn->Size = System::Drawing::Size(155, 75);
+			this->ListExpensesPerWeek_btn->TabIndex = 1;
+			this->ListExpensesPerWeek_btn->Text = L"List expenses per week";
+			this->ListExpensesPerWeek_btn->UseVisualStyleBackColor = true;
+			this->ListExpensesPerWeek_btn->Click += gcnew System::EventHandler(this, &MyForm::ListExpensesPerWeek_btn_Click);
+			// 
+			// AddExpense_btn
+			// 
+			this->AddExpense_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->AddExpense_btn->Location = System::Drawing::Point(12, 81);
+			this->AddExpense_btn->Name = L"AddExpense_btn";
+			this->AddExpense_btn->Size = System::Drawing::Size(155, 75);
+			this->AddExpense_btn->TabIndex = 2;
+			this->AddExpense_btn->Text = L"Add Expense";
+			this->AddExpense_btn->UseVisualStyleBackColor = true;
+			this->AddExpense_btn->Click += gcnew System::EventHandler(this, &MyForm::AddExpense_btn_Click);
+			// 
+			// ListSummaryPerWeek_btn
+			// 
+			this->ListSummaryPerWeek_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->ListSummaryPerWeek_btn->Location = System::Drawing::Point(173, 81);
+			this->ListSummaryPerWeek_btn->Name = L"ListSummaryPerWeek_btn";
+			this->ListSummaryPerWeek_btn->Size = System::Drawing::Size(155, 75);
+			this->ListSummaryPerWeek_btn->TabIndex = 3;
+			this->ListSummaryPerWeek_btn->Text = L"List summary per week";
+			this->ListSummaryPerWeek_btn->UseVisualStyleBackColor = true;
+			this->ListSummaryPerWeek_btn->Click += gcnew System::EventHandler(this, &MyForm::ListSummaryPerWeek_btn_Click);
 			// 
 			// dateTimePicker
 			// 
@@ -143,7 +153,7 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->topThreeExpensesPerWeek_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->topThreeExpensesPerWeek_btn->Location = System::Drawing::Point(656, 81);
+			this->topThreeExpensesPerWeek_btn->Location = System::Drawing::Point(817, 81);
 			this->topThreeExpensesPerWeek_btn->Name = L"topThreeExpensesPerWeek_btn";
 			this->topThreeExpensesPerWeek_btn->Size = System::Drawing::Size(155, 75);
 			this->topThreeExpensesPerWeek_btn->TabIndex = 5;
@@ -155,7 +165,7 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			this->topThreeExpensesPerMonth_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->topThreeExpensesPerMonth_btn->Location = System::Drawing::Point(817, 81);
+			this->topThreeExpensesPerMonth_btn->Location = System::Drawing::Point(984, 81);
 			this->topThreeExpensesPerMonth_btn->Name = L"topThreeExpensesPerMonth_btn";
 			this->topThreeExpensesPerMonth_btn->Size = System::Drawing::Size(155, 75);
 			this->topThreeExpensesPerMonth_btn->TabIndex = 5;
@@ -183,17 +193,17 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->Balance->Size = System::Drawing::Size(0, 37);
 			this->Balance->TabIndex = 8;
 			// 
-			// List_Expenses_month_btn
+			// ListExpensesPerMonth_btn
 			// 
-			this->List_Expenses_month_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+			this->ListExpensesPerMonth_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->List_Expenses_month_btn->Location = System::Drawing::Point(495, 81);
-			this->List_Expenses_month_btn->Name = L"List_Expenses_month_btn";
-			this->List_Expenses_month_btn->Size = System::Drawing::Size(155, 75);
-			this->List_Expenses_month_btn->TabIndex = 9;
-			this->List_Expenses_month_btn->Text = L"List expenses per month";
-			this->List_Expenses_month_btn->UseVisualStyleBackColor = true;
-			this->List_Expenses_month_btn->Click += gcnew System::EventHandler(this, &MyForm::List_Expenses_month_btn_Click);
+			this->ListExpensesPerMonth_btn->Location = System::Drawing::Point(656, 81);
+			this->ListExpensesPerMonth_btn->Name = L"ListExpensesPerMonth_btn";
+			this->ListExpensesPerMonth_btn->Size = System::Drawing::Size(155, 75);
+			this->ListExpensesPerMonth_btn->TabIndex = 9;
+			this->ListExpensesPerMonth_btn->Text = L"List expenses per month";
+			this->ListExpensesPerMonth_btn->UseVisualStyleBackColor = true;
+			this->ListExpensesPerMonth_btn->Click += gcnew System::EventHandler(this, &MyForm::ListExpensesPerMonth_btn_Click);
 			// 
 			// TopUpCardBalance_btn
 			// 
@@ -216,22 +226,35 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->Balance_TextBox->Size = System::Drawing::Size(155, 30);
 			this->Balance_TextBox->TabIndex = 11;
 			// 
+			// ListSummaryPerMonth_btn
+			// 
+			this->ListSummaryPerMonth_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->ListSummaryPerMonth_btn->Location = System::Drawing::Point(334, 81);
+			this->ListSummaryPerMonth_btn->Name = L"ListSummaryPerMonth_btn";
+			this->ListSummaryPerMonth_btn->Size = System::Drawing::Size(155, 75);
+			this->ListSummaryPerMonth_btn->TabIndex = 12;
+			this->ListSummaryPerMonth_btn->Text = L"List summary per month";
+			this->ListSummaryPerMonth_btn->UseVisualStyleBackColor = true;
+			this->ListSummaryPerMonth_btn->Click += gcnew System::EventHandler(this, &MyForm::ListSummaryPerMonth_btn_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(981, 584);
+			this->ClientSize = System::Drawing::Size(1151, 584);
+			this->Controls->Add(this->ListSummaryPerMonth_btn);
 			this->Controls->Add(this->Balance_TextBox);
 			this->Controls->Add(this->TopUpCardBalance_btn);
-			this->Controls->Add(this->List_Expenses_month_btn);
+			this->Controls->Add(this->ListExpensesPerMonth_btn);
 			this->Controls->Add(this->Balance);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->topThreeExpensesPerMonth_btn);
 			this->Controls->Add(this->topThreeExpensesPerWeek_btn);
 			this->Controls->Add(this->dateTimePicker);
-			this->Controls->Add(this->Categories_sum_btn);
-			this->Controls->Add(this->Add_Expense);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->ListSummaryPerWeek_btn);
+			this->Controls->Add(this->AddExpense_btn);
+			this->Controls->Add(this->ListExpensesPerWeek_btn);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
@@ -240,13 +263,22 @@ namespace FinanceManagementSystemGraphicalApp {
 		}
 #pragma endregion
 		
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);	
-	private: System::Void Add_Expense_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Categories_sum_btn_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void topThreeExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void topThreeExpensesPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void List_Expenses_month_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void TopUpCardBalance_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void AddExpense_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void ListSummaryPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void ListSummaryPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void ListExpensesPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void ListExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void topThreeExpensesPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
+	private: System::Void topThreeExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e);
+
 	private: vector<Date> daysOfweek();
 };
 }

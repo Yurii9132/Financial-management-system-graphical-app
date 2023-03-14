@@ -95,11 +95,10 @@ public:
 	void addExpense(Expense obj);
 	void addExpense(Date date, string name, double cost, int categorie);
 	void topUpBalance(Expense obj);
-	System::String^ listCategoriesSummery();
+	System::String^ listCategoriesSummery(vector<Expense> Expenses);
 	vector<Expense> expensesPerWeek(vector<Date> week);
-	System::String^ topThreeExpensesPerWeek(vector<Expense> weekExpenses);
+	System::String^ topThreeExpenses(vector<Expense> Expenses);
 	vector<Expense> expensesPerMonth(int month);
-	System::String^ topThreeExpensesPerMonth(vector<Expense> monthExpenses);
 	void pushList(vector<Expense> readFromFile);
 	vector<Expense> getListOfExpenses();
 	void writeToFile();

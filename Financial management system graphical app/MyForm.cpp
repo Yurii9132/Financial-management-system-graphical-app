@@ -13,7 +13,61 @@ int main(array<String^>^ args) {
 	Application::Run(% form);    
 }
 
-System::Void FinanceManagementSystemGraphicalApp::MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void FinanceManagementSystemGraphicalApp::MyForm::TopUpCardBalance_btn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	double sum;
+	System::String^ amount = this->Balance_TextBox->Text;
+	Date selectedDate = this->dateTimePicker->Value;
+	string name = "Top up card balance";
+	if (this->Balance_TextBox->Text->Contains("."))
+		amount = this->Balance_TextBox->Text->Replace(".", ",");
+	try {
+		sum = System::Convert::ToDouble(amount);
+	}
+	catch (FormatException^ ex) {
+		return System::Void();
+	}
+	MonoBanc->addExpense(Expense(selectedDate, name, sum, 0));
+	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
+	this->Balance_TextBox->Text = "";
+	MonoBanc->writeToFile();
+	return System::Void();
+}
+
+System::Void FinanceManagementSystemGraphicalApp::MyForm::AddExpense_btn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	AddExpense^ receiveData = gcnew AddExpense;
+	receiveData->ShowDialog(this);
+	if (receiveData->getIsCanceled() == false) {
+		receiveData->setIsCanceled(true);
+		System::DateTime selectedDate = receiveData->getDate()->Value;
+		std::string name = msclr::interop::marshal_as<std::string>(receiveData->getNane());
+		double sum = receiveData->getSum();
+		int cat = (int)receiveData->getCategorie();
+		MonoBanc->addExpense(Expense(selectedDate, name, (-1 * sum), cat));
+		MonoBanc->writeToFile();
+		this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
+	}
+	return System::Void();
+}
+
+System::Void FinanceManagementSystemGraphicalApp::MyForm::ListSummaryPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	vector<Date> week = daysOfweek();
+	this->label1->Text = MonoBanc->listCategoriesSummery(MonoBanc->expensesPerWeek(week));
+	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
+	return System::Void();
+}
+
+System::Void FinanceManagementSystemGraphicalApp::MyForm::ListSummaryPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	int month = this->dateTimePicker->Value.Month;
+	this->label1->Text = MonoBanc->listCategoriesSummery(MonoBanc->expensesPerMonth(month));
+	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
+	return System::Void();
+}
+
+System::Void FinanceManagementSystemGraphicalApp::MyForm::ListExpensesPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	System::String^ out;
 	vector<Date> week = daysOfweek();
@@ -31,42 +85,36 @@ System::Void FinanceManagementSystemGraphicalApp::MyForm::button1_Click(System::
 	return System::Void();
 }
 
-System::Void FinanceManagementSystemGraphicalApp::MyForm::Add_Expense_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void FinanceManagementSystemGraphicalApp::MyForm::ListExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	AddExpense^ receiveData = gcnew AddExpense;
-	receiveData->ShowDialog(this);
-	if (receiveData->getIsCanceled() == false) {
-		receiveData->setIsCanceled(true);
-		System::DateTime selectedDate = receiveData->getDate()->Value;
-		std::string name = msclr::interop::marshal_as<std::string>(receiveData->getNane());
-		double sum = receiveData->getSum();
-		int cat = (int)receiveData->getCategorie();
-		MonoBanc->addExpense(Expense(selectedDate, name, sum, cat));
-		MonoBanc->writeToFile();
-	}
-	return System::Void();
-}
-
-System::Void FinanceManagementSystemGraphicalApp::MyForm::Categories_sum_btn_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	this->label1->Text = MonoBanc->listCategoriesSummery();
+	System::String^ out;
 	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
-	return System::Void();
-}
-
-System::Void FinanceManagementSystemGraphicalApp::MyForm::topThreeExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e)
-{
 	int month = this->dateTimePicker->Value.Month;
-	//this->label1->Text = MonoBanc.expensesPerMonth(month);
-	this->label1->Text = MonoBanc->topThreeExpensesPerMonth(MonoBanc->expensesPerMonth(month));
-	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
+	if (MonoBanc->expensesPerMonth(month).empty())
+	{
+		out = "No spending found in the selected week\n";
+	}
+	else {
+		for (auto ex : MonoBanc->expensesPerMonth(month)) {
+			out += ex.show() + "\n";
+		}
+	}
+	this->label1->Text = out;
 	return System::Void();
 }
 
 System::Void FinanceManagementSystemGraphicalApp::MyForm::topThreeExpensesPerWeek_btn_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	vector<Date> week = daysOfweek();
-	this->label1->Text = MonoBanc->topThreeExpensesPerWeek(MonoBanc->expensesPerWeek(week));
+	this->label1->Text = MonoBanc->topThreeExpenses(MonoBanc->expensesPerWeek(week));
+	return System::Void();
+}
+
+System::Void FinanceManagementSystemGraphicalApp::MyForm::topThreeExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	int month = this->dateTimePicker->Value.Month;
+	this->label1->Text = MonoBanc->topThreeExpenses(MonoBanc->expensesPerMonth(month));
+	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
 	return System::Void();
 }
 
@@ -88,45 +136,5 @@ vector<Date> FinanceManagementSystemGraphicalApp::MyForm::daysOfweek()
 	}
 	return week;
 }
-
-System::Void FinanceManagementSystemGraphicalApp::MyForm::List_Expenses_month_btn_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	System::String^ out;
-	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
-	int month = this->dateTimePicker->Value.Month;
-	if (MonoBanc->expensesPerMonth(month).empty())
-	{
-		out = "No spending found in the selected week\n";
-	}
-	else {
-		for (auto ex : MonoBanc->expensesPerMonth(month)) {
-			out += ex.show() + "\n";
-		}
-	}
-	this->label1->Text = out;
-	return System::Void();
-}
-
-System::Void FinanceManagementSystemGraphicalApp::MyForm::TopUpCardBalance_btn_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	double sum;
-	System::String^ amount = this->Balance_TextBox->Text;
-	Date selectedDate = this->dateTimePicker->Value;
-	string name = "Top up card balance";
-	if (this->Balance_TextBox->Text->Contains("."))
-		amount = this->Balance_TextBox->Text->Replace(".",",");
-	try {
-		sum = System::Convert::ToDouble(amount);
-	}catch (FormatException^ ex) {
-		return System::Void();
-	}
-	Expense topUp(selectedDate, name, sum, 0);
-	MonoBanc->topUpBalance(topUp);
-	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
-	this->Balance_TextBox->Text = "";
-	MonoBanc->writeToFile();
-	return System::Void();
-}
-
 
 

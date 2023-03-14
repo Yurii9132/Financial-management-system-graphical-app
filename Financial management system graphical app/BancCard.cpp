@@ -20,7 +20,7 @@ double BancCard::getBalance()
 void BancCard::addExpense(Expense obj)
 {
 	expenses.push_back(obj);
-	balance -= obj.getCost();
+	balance += obj.getCost();
 }
 
 void BancCard::setBalabce(double sum)
@@ -35,7 +35,7 @@ void BancCard::addExpense(Date date, string name, double cost, int categorie)
 	balance -= cost;
 }
 
-System::String^ BancCard::listCategoriesSummery()
+System::String^ BancCard::listCategoriesSummery(vector<Expense> Expenses)
 {
 	System::String^ out;
 	int n;
@@ -44,7 +44,7 @@ System::String^ BancCard::listCategoriesSummery()
 		   restaurants_and_entertainment = 0,
 		   treveling_and_fuel = 0,
 		   clothes_and_other = 0;
-	for (auto cat : expenses) {
+	for (auto cat : Expenses) {
 		n = cat.getCategorie();
 		switch (n)
 		{
@@ -93,21 +93,21 @@ void BancCard::topUpBalance(Expense obj)
 	balance += obj.getCost();
 }
 
-System::String^ BancCard::topThreeExpensesPerWeek(vector<Expense> weekExpenses)
+System::String^ BancCard::topThreeExpenses(vector<Expense> Expenses)
 { 
 	System::String^ out;
-	if (weekExpenses.empty())
+	if (Expenses.empty())
 	{
-		out = "No spending found in the selected month\n";
+		out = "No spending found in this period\n";
 	}
 	else {
-		sort(weekExpenses.begin(), weekExpenses.end(), [](Expense& obj, Expense& objNext) {
-			if (obj.getCost() > objNext.getCost()) return true;
+		sort(Expenses.begin(), Expenses.end(), [](Expense& obj, Expense& objNext) {
+			if (obj.getCost() < objNext.getCost()) return true;
 			else return false;
 			});
-		for (int i = 0; i < 3 && i < weekExpenses.size(); i++)
+		for (int i = 0; i < 3 && i < Expenses.size(); i++)
 		{
-			out += System::Convert::ToString(i + 1) + ". " + weekExpenses[i].show() + "\n";
+			out += System::Convert::ToString(i + 1) + ". " + Expenses[i].show() + "\n";
 		}
 	}
 	return out;
@@ -124,28 +124,6 @@ vector<Expense> BancCard::expensesPerMonth(int month)
 		}
 	}
 	return monthExpenses;
-}
-
-System::String^ BancCard::topThreeExpensesPerMonth(vector<Expense> monthExpenses)
-{
-	System::String^ out;
-	if (monthExpenses.empty())
-	{
-		out = "No spending found in the selected month\n";
-	}
-	else {
-		sort(monthExpenses.begin(), monthExpenses.end(), [](Expense& obj, Expense& objNext) {
-			if (obj.getCost() > objNext.getCost()) return true;
-			else return false;
-			});
-
-		for (int i = 0; i < 3 && i < monthExpenses.size(); i++)
-		{
-			out += System::Convert::ToString(i + 1) + ". " + monthExpenses[i].show() + "\n";
-		}
-	}
-	
-	return out;
 }
 
 void BancCard::pushList(vector<Expense> readFromFile)
