@@ -55,7 +55,8 @@ namespace FinanceManagementSystemGraphicalApp {
 
 
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Button^ Cancel_btn;
+	private: System::Windows::Forms::Button^ Gadgets_btn;
+
 
 
 	private:
@@ -82,7 +83,7 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->Treveling_and_fuel_btn = (gcnew System::Windows::Forms::Button());
 			this->Clothes_and_other_btn = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->Cancel_btn = (gcnew System::Windows::Forms::Button());
+			this->Gadgets_btn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -175,7 +176,7 @@ namespace FinanceManagementSystemGraphicalApp {
 			// 
 			// Clothes_and_other_btn
 			// 
-			this->Clothes_and_other_btn->Location = System::Drawing::Point(223, 322);
+			this->Clothes_and_other_btn->Location = System::Drawing::Point(426, 322);
 			this->Clothes_and_other_btn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Clothes_and_other_btn->Name = L"Clothes_and_other_btn";
 			this->Clothes_and_other_btn->Size = System::Drawing::Size(196, 94);
@@ -194,21 +195,21 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->label3->TabIndex = 0;
 			this->label3->Text = L"$";
 			// 
-			// Cancel_btn
+			// Gadgets_btn
 			// 
-			this->Cancel_btn->Location = System::Drawing::Point(427, 322);
-			this->Cancel_btn->Name = L"Cancel_btn";
-			this->Cancel_btn->Size = System::Drawing::Size(195, 94);
-			this->Cancel_btn->TabIndex = 4;
-			this->Cancel_btn->Text = L"Cancel";
-			this->Cancel_btn->UseVisualStyleBackColor = true;
-			this->Cancel_btn->Click += gcnew System::EventHandler(this, &AddExpense::Cancel_btn_Click);
+			this->Gadgets_btn->Location = System::Drawing::Point(222, 322);
+			this->Gadgets_btn->Name = L"Gadgets_btn";
+			this->Gadgets_btn->Size = System::Drawing::Size(195, 94);
+			this->Gadgets_btn->TabIndex = 4;
+			this->Gadgets_btn->Text = L"Gadgets";
+			this->Gadgets_btn->UseVisualStyleBackColor = true;
+			this->Gadgets_btn->Click += gcnew System::EventHandler(this, &AddExpense::Gadgets_btn_Click);
 			// 
 			// AddExpense
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->ClientSize = System::Drawing::Size(638, 450);
-			this->Controls->Add(this->Cancel_btn);
+			this->Controls->Add(this->Gadgets_btn);
 			this->Controls->Add(this->Restaurants_and_entertainment_btn);
 			this->Controls->Add(this->Clothes_and_other_btn);
 			this->Controls->Add(this->Treveling_and_fuel_btn);
@@ -237,8 +238,8 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Void Sport_and_medicine_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Restaurants_and_entertainment_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Treveling_and_fuel_btn_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Gadgets_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Clothes_and_other_btn_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void Cancel_btn_Click(System::Object^ sender, System::EventArgs^ e);
 	public: DateTimePicker^ getDate() {	return dateTimePicker;	}
 	public: double getSum() { return sum; }
 	public: System::String^ getNane() {	return Name_text_box->Text;	}

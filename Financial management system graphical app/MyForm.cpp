@@ -30,21 +30,24 @@ System::Void FinanceManagementSystemGraphicalApp::MyForm::TopUpCardBalance_btn_C
 	MonoBanc->addExpense(Expense(selectedDate, name, sum, 0));
 	this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
 	this->Balance_TextBox->Text = "";
+	MonoBanc->sortByDate();
 	MonoBanc->writeToFile();
 	return System::Void();
 }
 
 System::Void FinanceManagementSystemGraphicalApp::MyForm::AddExpense_btn_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	MonoBanc->sortByDate();
+	MonoBanc->writeToFile();
 	AddExpense^ receiveData = gcnew AddExpense;
 	receiveData->ShowDialog(this);
 	if (receiveData->getIsCanceled() == false) {
-		receiveData->setIsCanceled(true);
 		System::DateTime selectedDate = receiveData->getDate()->Value;
 		std::string name = msclr::interop::marshal_as<std::string>(receiveData->getNane());
-		double sum = receiveData->getSum();
-		int cat = (int)receiveData->getCategorie();
-		MonoBanc->addExpense(Expense(selectedDate, name, (-1 * sum), cat));
+		double sum = receiveData->getSum() * -1;
+		int cat = receiveData->getCategorie();
+		MonoBanc->addExpense(Expense(selectedDate, name, sum, cat));
+		MonoBanc->sortByDate();
 		MonoBanc->writeToFile();
 		this->Balance->Text = "$" + System::Convert::ToString(MonoBanc->getBalance());
 	}

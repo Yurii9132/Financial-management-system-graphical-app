@@ -19,6 +19,7 @@ public:
 	void operator = (const Date& obj);
 	void operator = (System::DateTime& obj);
 	bool operator < (const Date& obj);
+	bool operator > (const Date& obj);
 	int getDay();
 	int getMonth();
 	int getYear();
@@ -28,8 +29,8 @@ public:
 };
 
 enum Categories { 
-	TopUp, Groceries, Sport_and_medicine, Restaurants_and_entertainment,
-	Treveling_and_fuel, Clothes_and_other
+	TopUp, Groceries, Sport_and_helthcare, Restaurants_and_entertainment,
+	Treveling_and_fuel, Gadgets, Clothes_and_other
 };
 
 
@@ -93,7 +94,6 @@ public:
 	double getBalance();
 	void setBalabce(double sum);
 	void addExpense(Expense obj);
-	void addExpense(Date date, string name, double cost, int categorie);
 	void topUpBalance(Expense obj);
 	System::String^ listCategoriesSummery(vector<Expense> Expenses);
 	vector<Expense> expensesPerWeek(vector<Date> week);
@@ -101,6 +101,7 @@ public:
 	vector<Expense> expensesPerMonth(int month);
 	void pushList(vector<Expense> readFromFile);
 	vector<Expense> getListOfExpenses();
+	void sortByDate();
 	void writeToFile();
 	void readFromFile();
 	System::String^ BancCard::show();

@@ -3,9 +3,6 @@
 #include"AddExpense.h"
 
 
-	extern BancCard ;
-
-
 namespace FinanceManagementSystemGraphicalApp {
 
 	using namespace System;
@@ -56,7 +53,7 @@ namespace FinanceManagementSystemGraphicalApp {
 
 
 	private: System::Windows::Forms::Button^ topThreeExpensesPerMonth_btn;
-	private: System::Windows::Forms::Label^ label1;
+
 	private: System::Windows::Forms::Label^ Balance;
 	private: System::Windows::Forms::Button^ ListExpensesPerMonth_btn;
 
@@ -66,6 +63,9 @@ namespace FinanceManagementSystemGraphicalApp {
 
 	private: BancCard* MonoBanc;
 	private: System::Windows::Forms::Button^ ListSummaryPerMonth_btn;
+	private: System::Windows::Forms::Label^ label1;
+
+
 
 
 
@@ -96,12 +96,12 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->dateTimePicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->topThreeExpensesPerWeek_btn = (gcnew System::Windows::Forms::Button());
 			this->topThreeExpensesPerMonth_btn = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Balance = (gcnew System::Windows::Forms::Label());
 			this->ListExpensesPerMonth_btn = (gcnew System::Windows::Forms::Button());
 			this->TopUpCardBalance_btn = (gcnew System::Windows::Forms::Button());
 			this->Balance_TextBox = (gcnew System::Windows::Forms::TextBox());
 			this->ListSummaryPerMonth_btn = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// ListExpensesPerWeek_btn
@@ -173,22 +173,12 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->topThreeExpensesPerMonth_btn->UseVisualStyleBackColor = true;
 			this->topThreeExpensesPerMonth_btn->Click += gcnew System::EventHandler(this, &MyForm::topThreeExpensesPerMonth_btn_Click);
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(25, 177);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(0, 25);
-			this->label1->TabIndex = 7;
-			// 
 			// Balance
 			// 
 			this->Balance->AutoSize = true;
 			this->Balance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->Balance->Location = System::Drawing::Point(821, 30);
+			this->Balance->Location = System::Drawing::Point(811, 30);
 			this->Balance->Name = L"Balance";
 			this->Balance->Size = System::Drawing::Size(0, 37);
 			this->Balance->TabIndex = 8;
@@ -238,17 +228,27 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->ListSummaryPerMonth_btn->UseVisualStyleBackColor = true;
 			this->ListSummaryPerMonth_btn->Click += gcnew System::EventHandler(this, &MyForm::ListSummaryPerMonth_btn_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(23, 175);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 25);
+			this->label1->TabIndex = 7;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1004, 584);
+			this->ClientSize = System::Drawing::Size(1126, 663);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->ListSummaryPerMonth_btn);
 			this->Controls->Add(this->Balance_TextBox);
 			this->Controls->Add(this->TopUpCardBalance_btn);
 			this->Controls->Add(this->ListExpensesPerMonth_btn);
 			this->Controls->Add(this->Balance);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->topThreeExpensesPerMonth_btn);
 			this->Controls->Add(this->topThreeExpensesPerWeek_btn);
 			this->Controls->Add(this->dateTimePicker);
