@@ -81,7 +81,7 @@ namespace FinanceManagementSystemGraphicalApp {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -216,21 +216,35 @@ namespace FinanceManagementSystemGraphicalApp {
 			this->Balance_TextBox->Size = System::Drawing::Size(155, 30);
 			this->Balance_TextBox->TabIndex = 11;
 			// 
-			// button3
+			// ListSummaryPerMonth_btn
 			// 
-			this->button3->Location = System::Drawing::Point(555, 177);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(174, 60);
-			this->button3->TabIndex = 12;
-			this->button3->Text = L"button3";
-			this->button3->UseVisualStyleBackColor = true;
+			this->ListSummaryPerMonth_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
+			this->ListSummaryPerMonth_btn->Location = System::Drawing::Point(495, 82);
+			this->ListSummaryPerMonth_btn->Name = L"ListSummaryPerMonth_btn";
+			this->ListSummaryPerMonth_btn->Size = System::Drawing::Size(155, 75);
+			this->ListSummaryPerMonth_btn->TabIndex = 12;
+			this->ListSummaryPerMonth_btn->Text = L"List summary per month";
+			this->ListSummaryPerMonth_btn->UseVisualStyleBackColor = true;
+			this->ListSummaryPerMonth_btn->Click += gcnew System::EventHandler(this, &MyForm::ListSummaryPerMonth_btn_Click);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(23, 175);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 25);
+			this->label1->TabIndex = 7;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(924, 584);
-			this->Controls->Add(this->button3);
+			this->ClientSize = System::Drawing::Size(984, 663);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->ListSummaryPerMonth_btn);
 			this->Controls->Add(this->Balance_TextBox);
 			this->Controls->Add(this->TopUpCardBalance_btn);
 			this->Controls->Add(this->ListExpensesPerMonth_btn);
@@ -248,7 +262,7 @@ namespace FinanceManagementSystemGraphicalApp {
 
 		}
 #pragma endregion
-		
+
 	private: System::Void TopUpCardBalance_btn_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void AddExpense_btn_Click(System::Object^ sender, System::EventArgs^ e);
@@ -266,5 +280,5 @@ namespace FinanceManagementSystemGraphicalApp {
 	private: System::Void topThreeExpensesPerMonth_btn_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: vector<Date> daysOfweek();
-};
+	};
 }
