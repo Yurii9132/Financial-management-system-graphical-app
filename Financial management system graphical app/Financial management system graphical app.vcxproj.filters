@@ -21,9 +21,6 @@
     <ClCompile Include="BancCard.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="DataBase.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="AddExpense.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -33,9 +30,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="BancCard.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="DataBase.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="AddExpense.h">

@@ -1,6 +1,5 @@
 #include "AddExpense.h"
 #include "BancCard.h"
-#include "DataBase.h"
 
 bool FinanceManagementSystemGraphicalApp::AddExpense::AreNotEmpty()
 {
