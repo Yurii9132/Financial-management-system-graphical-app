@@ -1,19 +1,24 @@
-10490
-20	2	2023	20	2Ball
-20	2	2023	7	2Goggles
-20	2	2023	3	1Juse
-20	2	2023	13	5Slippers
-20	2	2023	102	4Bus ticket
-20	1	2023	600	5Phone
-20	2	2023	8	2Toothpaste
-27	2	2023	10	3Burger
-27	2	2023	15	3Cinema: Avatar 2
-7	3	2023	20	5Postage
-7	3	2023	17	2Haircut
-28	2	2023	70	5Sunglasses
-7	3	2023	120	2Trainers
-8	3	2023	560	5Entrence Door
-3	3	2023	100	3Concert Orcestr
-10	3	2023	21	2Colagen
-12	3	2023	750	5phone
-12	3	2023	60	3Lunch	
+2002.71
+26	1	2023	-600	5Phone																																																			
+15	2	2023	-3	1Juse																																																			
+18	2	2023	-7	2Goggles																																																			
+20	2	2023	-20	2Ball																																																			
+20	2	2023	-13	6Slippers																																																			
+20	2	2023	-102	4Bus ticket																																																			
+27	2	2023	-10	3Burger																																																			
+27	2	2023	-15	3Cinema: Avatar 2																																																		
+28	2	2023	-8	2Toothpaste																																																			
+28	2	2023	-70	6Sunglasses				
+1	3	2023	-12.2	3Amazon Prime																
+3	3	2023	-100	3Orcestr Concert									
+6	3	2023	-17	2Haircut																																														
+6	3	2023	1000	0Top up card balance													
+7	3	2023	-20	6Postage																																															
+7	3	2023	-120	2Trainers																																												
+8	3	2023	-560	6Entrence Door									
+10	3	2023	-21	2Colagen																																							
+13	3	2023	-80.78	5Headphones																
+15	3	2023	-5.63	1bread and milk																
+15	3	2023	200.21	0Top up card balance		
+16	3	2023	-12.56	1Chicken wings			
+17	3	2023	-113.6	5SSD disk														

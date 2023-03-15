@@ -4,8 +4,18 @@
 
 bool FinanceManagementSystemGraphicalApp::AddExpense::AreNotEmpty()
 {
-	if(!System::String::IsNullOrEmpty(Sum_text_box->Text) && !System::String::IsNullOrEmpty(Name_text_box->Text))
+	System::String^ amount = this->Sum_text_box->Text;
+	if (!System::String::IsNullOrEmpty(Sum_text_box->Text) && !System::String::IsNullOrEmpty(Name_text_box->Text)) {
+		if (this->Sum_text_box->Text->Contains("."))
+			amount = this->Sum_text_box->Text->Replace(".", ",");
+		try {
+			sum = System::Convert::ToDouble(amount);
+		}
+		catch (FormatException^ ex) {
+			return false;
+		}
 		return true;
+	}		
 	else
 		return false;
 }
@@ -50,9 +60,9 @@ System::Void FinanceManagementSystemGraphicalApp::AddExpense::Treveling_and_fuel
 	return System::Void();
 }
 
-System::Void FinanceManagementSystemGraphicalApp::AddExpense::Clothes_and_other_btn_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void FinanceManagementSystemGraphicalApp::AddExpense::Gadgets_btn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (AreNotEmpty()){
+	if (AreNotEmpty()) {
 		this->categorie = 5;
 		isCanc = false;
 		Form::Close();
@@ -60,9 +70,15 @@ System::Void FinanceManagementSystemGraphicalApp::AddExpense::Clothes_and_other_
 	return System::Void();
 }
 
-System::Void FinanceManagementSystemGraphicalApp::AddExpense::Cancel_btn_Click(System::Object^ sender, System::EventArgs^ e)
+System::Void FinanceManagementSystemGraphicalApp::AddExpense::Clothes_and_other_btn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	isCanc = true;	
-	Form::Close();
+	if (AreNotEmpty()){
+		this->categorie = 6;
+		isCanc = false;
+		Form::Close();
+	}
 	return System::Void();
 }
+
+
+
