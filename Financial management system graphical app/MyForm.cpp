@@ -37,8 +37,6 @@ System::Void FinanceManagementSystemGraphicalApp::MyForm::TopUpCardBalance_btn_C
 
 System::Void FinanceManagementSystemGraphicalApp::MyForm::AddExpense_btn_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	MonoBanc->sortByDate();
-	MonoBanc->writeToFile();
 	AddExpense^ receiveData = gcnew AddExpense;
 	receiveData->ShowDialog(this);
 	if (receiveData->getIsCanceled() == false) {
