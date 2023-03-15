@@ -110,7 +110,9 @@ System::String^ BancCard::topThreeExpenses(vector<Expense> Expenses)
 			});
 		for (int i = 0; i < 3 && i < Expenses.size(); i++)
 		{
-			out += System::Convert::ToString(i + 1) + ". " + Expenses[i].show() + "\n";
+			if (Expenses[i].getCategorie() != 0) {
+				out += System::Convert::ToString(i + 1) + ". " + Expenses[i].show() + "\n";
+			}
 		}
 	}
 	return out;
@@ -249,17 +251,17 @@ System::String^ Expense::show()
 	{
 	case Categories::TopUp: cat = "";
 		break;
-	case Categories::Groceries: cat = " Groceries.";
+	case Categories::Groceries: cat = " > Groceries.";
 		break;
-	case Categories::Sport_and_helthcare: cat = " Sport and helthcare.";
+	case Categories::Sport_and_helthcare: cat = " > Sport and helthcare.";
 		break;
-	case Categories::Restaurants_and_entertainment: cat = " Restaurants and entertainment.";
+	case Categories::Restaurants_and_entertainment: cat = " > Restaurants and entertainment.";
 		break;
-	case Categories::Treveling_and_fuel: cat = " Treveling and fuel.";
+	case Categories::Treveling_and_fuel: cat = " > Treveling and fuel.";
 		break;
 	case Categories::Gadgets: cat = " Gadgets.";
 		break;
-	case Categories::Clothes_and_other: cat = " Clothes and other.";
+	case Categories::Clothes_and_other: cat = " > Clothes and other.";
 		break;
 	}
 	out = date.show() + " $" + System::Convert::ToString(cost) + " " + namec + " " + cat;
